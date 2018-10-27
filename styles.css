@@ -1,0 +1,16 @@
+ ul li {
+   display: inline;
+   padding: 10px 2px;
+ }
+ ul li  a{
+   text-decoration: none;
+   text-transform: uppercase;
+   font-size: 2em;
+   color: #000;
+   position: relative;
+ }
+
+ul li a:before {
+  content: '';
+  width: 0 ;
+}

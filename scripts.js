@@ -74,7 +74,24 @@ function buildQuiz() {
   triviaDiv.innerHTML = outPutQuestions.join('');
 }
 
-function displayScores() {}
+function displayScores() {
+  const answerDiv = triviaDiv.querySelectorAll('.answers');
+  let nuCorrect = 0;
+  questions.forEach( (currentQuestion, questionNumber) => {
+    const answerDiv = answerDiv[questionNumber];
+    const selector = 'input[name=question '+questionNumber+']:checked';
+    const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+    if(userAnswer === currentQuestion) {
+      numCorrect++;
+      answerDiv[questionNumber].style.color = 'lightgreen'
+    } else {
+      answerDiv[questionNumber].style.color = 'red';
+    }
+
+  });
+
+
 
 buildQuiz();
 sumbmitButton.addEventListener('click', displayScores);
