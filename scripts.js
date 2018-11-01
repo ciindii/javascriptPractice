@@ -126,4 +126,89 @@ console.log(book1.getSummary());
 
 // CONSTRUCTORS
 
-function Book() {}
+function Book(title, author, year) {
+  this.title = title;
+  this.author = author;
+  this.year = year;
+  this.getSummary = function () {
+    return `${this.title} was written by ${this.author} publiished ${this.year}`;
+  };
+}
+
+//Instatiate an Object
+const book2 = new Book('book two', 'JJ', 1993);
+const book3 = new Book('book three', 'JD', 1994);
+
+console.log(book2);
+console.log(book2.getSummary());
+
+//////////////////
+//PROTOTYPES
+
+// CONSTRUCTORS
+
+function Books(title, author, year) {
+  this.title = title;
+  this.author = author;
+  this.year = year;
+}
+
+//prototype getSummary
+//getSummary is now stored in the proto instead of the object
+Books.prototype.getSummary = function () {
+  return `${this.title} was written by ${this.author} publiished ${this.year}`;
+};
+
+//getAge of the book
+Books.prototype.getAge = function () {
+  const years = new Date().getFullYear() - this.year;
+  return `${this.title} is ${years} years old}`;
+};
+
+//revise / change year
+Books.prototype.revise = function (newYear) {
+  this.year = newYear;
+  this.revised = true;
+};
+
+//Instatiate an Object
+const book6 = new Book('book six', 'JJ', 1993);
+const book5 = new Book('book five', 'JD', 1994);
+
+console.log(book6);
+console.log(book6.getSummary());
+book6.revise('2018');
+console.log(book6);
+
+
+//INHERITENCE WITH prototypes
+// CONSTRUCTORS
+
+// CONSTRUCTORS
+
+function Food(cal, fat, protien) {
+  this.cal = cal;
+  this.fat = fat;
+  this.protien = protien;
+}
+
+//prototype getSummary
+//getSummary is now stored in the proto instead of the object
+Food.prototype.getNutrition = function () {
+  return `${this.cal}, ${this.fat}, and ${this.protien}`;
+};
+
+//magazine CONSTRUCTORS
+function Magazine(cal, fat, protien, month) {
+  Food.call(this, cal, protien, fat);
+  this.month = month;
+}
+
+//INHERIT PROTOTYPE
+Magazine.prototype = Object.create(Food.prototype);
+
+//instantitate magazine object
+const mag1 = new Magazine('cal', 'protien', 'fat');
+console.log(mag1);
+
+//INHERIT PROTOTYPE
