@@ -177,9 +177,9 @@ const book5 = new Book('book five', 'JD', 1994);
 
 console.log(book6);
 console.log(book6.getSummary());
-book6.revise('2018');
-console.log(book6);
 
+// book6.revise('2018');
+console.log(book6);
 
 //INHERITENCE WITH prototypes
 // CONSTRUCTORS
@@ -211,4 +211,34 @@ Magazine.prototype = Object.create(Food.prototype);
 const mag1 = new Magazine('cal', 'protien', 'fat');
 console.log(mag1);
 
-//INHERIT PROTOTYPE
+//use magazine CONSTRUCTORS
+Magazine.prototype.constructor = Magazine;
+console.log(mag1);
+
+//OBJECT of prototypes
+const bookProtos = {
+  getSummary: function () {
+    return `${this.title} was written by ${this.author} publiished ${this.year}`;
+  },
+
+  getAge: function () {
+    const years = new Date().getFullYear() - this.year;
+    return `${this.title} is ${years} years old}`;
+  },
+};
+
+//create objects
+// const book10 = Object.create(bookProtos);
+// book10.title = 'book Ten';
+// book10.author = 'Jane Doe';
+// book10.year = '2016';
+
+const book10 = Object.create(bookProtos, {
+  title: { value: 'Book Ten' },
+  author: { value: 'Jane Doe' },
+  year: { value: '2016' },
+});
+
+console.log(book10);
+
+//ES6 class
