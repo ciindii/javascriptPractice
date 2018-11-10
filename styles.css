@@ -14,3 +14,36 @@ ul li a:before {
   content: '';
   width: 0 ;
 }
+
+.box1-static {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  position: static;
+}
+
+.box2-static {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  position: static;
+}
+
+.box-boxmodel {
+  width: 100px;
+  height: 100px;
+  border: 20px solid lavender;
+  padding: 30px;
+  margin: 30px;
+  background-color: yellow;
+}
+
+.box-boxmodel-borderbox {
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  border: 20px solid lavender;
+  padding: 30px;
+  margin: 30px;
+  background-color: yellow;
+}
