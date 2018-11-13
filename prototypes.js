@@ -1,40 +1,53 @@
-//example1
-const Car = function (make, model, year) {
-  this.make = make;
-  this.model = model;
-  this.year = year;
-};
+//ES6 CLASS
 
-Car.prototype.summary = function () {
-  return `${this.year} ${this.make} ${this.model}`;
-};
+// class Book {}
+class Book {
+  constructor(title, author, year) {
+    this.title = title;
+    this.author = author;
+    this.year = year;
+  }
 
-Car.prototype.getTheAge = function () {
-  const years = new Date().getFullYear() - this.year;
-  return `This ${this.make} ${this.model} is ${years} years old`;
-};
+  getSummary() {
+    return `${this.title} was written by ${this.author} in ${this.year}`;
+  }
+}
 
-const car1 = new Car('Honda', 'Civic', 1993);
-const car2 = new Car('Toyota', '4 Runner', 2018);
+//will have everything getSummary have including month
+//no need to .prototype
+//MAGAZINE SUBCLASS
+class Magazine extends Book {
+  constructor(title, author, year, month) {
+    super(title, author, year);
+    this.month = month;
+  }
+}
 
-console.log(car1.summary());
-console.log(car1.getTheAge());
-console.log(car2.summary());
-console.log(car2.getTheAge());
+//INSTATIATE MAGAZINE
+const mag1 = new Magazine('Mag One', 'John Doe', '2018', 'Jan');
 
-//example2
+console.log(mag1);
+console.log(mag1.getSummary());
 
-const Album = function (song, artist, year) {
-  this.song = song;
-  this.artist = artist;
-  this.year = year;
-};
+class Car {
+  constructor(make, model, year) {
+    this.make = make;
+    this.model = model;
+    this.year = year;
+  }
 
-Album.prototype.note = function () {
-  return `${this.artist} sang ${this.song} in ${this.year}`;
-};
+  getSummary() {
+    return ` ${this.year} ${this.make} ${this.model}`;
+  }
+}
 
-const album1 = new Album('Mic Drop', 'BTS', 2017);
-console.log(album1.note());
+class forSale extends Car {
+  constructor(make, model, year, sale) {
+    super(make, model, year);
+    this.sale = sale;
+  }
+}
 
-//INHERITENCE WITH prototypes
+const forSale = new ForSale('Honda', 'Civic', '1994', 'for Sale');
+
+console.log(forSale);
