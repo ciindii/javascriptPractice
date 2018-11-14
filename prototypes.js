@@ -1,34 +1,3 @@
-//ES6 CLASS
-
-// class Book {}
-class Book {
-  constructor(title, author, year) {
-    this.title = title;
-    this.author = author;
-    this.year = year;
-  }
-
-  getSummary() {
-    return `${this.title} was written by ${this.author} in ${this.year}`;
-  }
-}
-
-//will have everything getSummary have including month
-//no need to .prototype
-//MAGAZINE SUBCLASS
-class Magazine extends Book {
-  constructor(title, author, year, month) {
-    super(title, author, year);
-    this.month = month;
-  }
-}
-
-//INSTATIATE MAGAZINE
-const mag1 = new Magazine('Mag One', 'John Doe', '2018', 'Jan');
-
-console.log(mag1);
-console.log(mag1.getSummary());
-
 class Car {
   constructor(make, model, year) {
     this.make = make;
@@ -41,13 +10,28 @@ class Car {
   }
 }
 
-class forSale extends Car {
+class ForSale extends Car {
   constructor(make, model, year, sale) {
     super(make, model, year);
     this.sale = sale;
   }
 }
 
-const forSale = new ForSale('Honda', 'Civic', '1994', 'for Sale');
+class salePrice extends Car {
+  constructor(make, model, year, sale, price) {
+    super(make, model, year);
+    this.price = price;
+  }
+}
 
-console.log(forSale);
+const forSale1 = new ForSale('Honda', 'Civic', '1994', 'for Sale');
+
+const forSale2 = new ForSale('Toyota', '4Runner', '2018', 'Not For Sale');
+
+const forSale3 = new ForSale('Subaru', 'Sti', '2018', 'For Sale', '$30,000');
+
+console.log(forSale1);
+console.log(forSale2);
+console.log(forSale1.getSummary());
+console.log(forSale2.getSummary());
+console.log(forSale3);
