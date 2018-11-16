@@ -242,3 +242,51 @@ const book10 = Object.create(bookProtos, {
 console.log(book10);
 
 //ES6 class
+
+//scope chain what is the value of myVar?
+function b() {
+  console.log(myVar);
+}
+
+function a() {
+  var myVar = 2;
+  b();
+}
+
+//the value that is sitting on the global level
+//was called
+var myVar = 1;
+
+a();
+
+//changed b2(); outter reference
+
+function a2() {
+  function b2() {
+    console.log(myVar2);
+  }
+
+  myVar2 = 2;
+  b2();
+}
+
+myVar2 = 1;
+a2();
+
+//long running function
+function waitThreeSeconds() {
+  var ms = 3000 + new Date().getTime();
+  while (new Date() < ms) {
+    console.log('finished function');
+  }
+}
+
+function clickHandler() {
+  console.log('click event!');
+}
+
+//listen for the click event
+document.addEventListener('click', clickHandler);
+
+waitThreeSeconds();
+console.log('finished execution');
