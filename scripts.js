@@ -273,6 +273,8 @@ function a2() {
 myVar2 = 1;
 a2();
 
+
+//asynchonous  examplegit
 //long running function
 function waitThreeSeconds() {
   var ms = 3000 + new Date().getTime();
@@ -290,3 +292,10 @@ document.addEventListener('click', clickHandler);
 
 waitThreeSeconds();
 console.log('finished execution');
+
+//toggle navigation
+
+$('#toggle').click(function () {
+  (this).toggleClass('on');
+  ('#resize').toggleClass('active');
+});
