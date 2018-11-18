@@ -8,7 +8,7 @@ a {
 
 }
 
-nav {
+/* nav {
   display: flex;
   justify-content: space-between;
   padding: 10px;
@@ -38,7 +38,7 @@ nav {
 ul li a:before {
   content: '';
   width: 0 ;
-}
+} */
 
 .box1-static {
   width: 100px;
@@ -84,8 +84,9 @@ ul li a:before {
 body{
   width: 100%;
   height: 100vh;
-  background: url() no-repeat 50% 50%;
-  background-size: cover;
+  /* background: url() no-repeat 50% 50%;
+  background-size: cover; */
+  background-color: #eee;
   display: table;
 }
 
@@ -223,6 +224,43 @@ nav #menu li a {
   visibility: visible;
   opacity: 0.99;
 }
+
+
+/* FOOTER */
+footer {
+  height: 300px;
+  background-color: #000;
+}
+
+.top {
+  text-align: center;
+}
+
+.top a{
+  color: #eee;
+  text-transform: uppercase;
+}
+
+.top:hover a{
+  text-decoration: none;
+  opacity: .5;
+}
+
+.siteLink {
+  text-align: center;
+}
+
+.siteLink li{
+  text-align: center;
+  display: inline-block;
+
+}
+
+.siteLink a {
+  padding: 10px;
+  color: #ccc;
+}
+
 
 @media(max-width: 768px) {
   #toggle {
