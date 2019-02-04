@@ -1,3 +1,42 @@
+
+//creates an array and console.log i
+function buildFunctions (){
+  var arr = [];
+  for(var i = 0; i < 3; i++){
+    arr.push(
+      function () {
+        console.log(i);
+      }
+    );
+  } return arr;
+}
+
+var fs = buildFunctions();
+fs[0]();
+fs[1]();
+fs[2]();
+
+//creates an array and console.log i with let
+function buildFunctions2 () {
+  let arr = [];
+  for (var i = 0; i < 3; i++) {
+            let j = i;
+    arr.push(
+      function() {
+        console.log(j);
+      }
+    );
+  } return arr;
+}
+
+var fs2 = buildFunctions2();
+
+fs2[0]();
+fs2[1]();
+fs2[2]();
+
+
+
 // const triviaDiv = document.querySelector('.trivia');
 // const scoreDiv = document.querySelector('.score');
 // const submitButton = document.querySelector('#submit');
