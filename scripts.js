@@ -35,6 +35,13 @@ fs2[0]();
 fs2[1]();
 fs2[2]();
 
+//closures
+function greet(whattosay) {
+  return function (name) {
+    console.log(whattosay + ' ' + name);
+  }
+}
+greet('hi')('Tony');
 
 
 // const triviaDiv = document.querySelector('.trivia');
@@ -338,3 +345,33 @@ $('#toggle').click(function () {
   (this).toggleClass('on');
   ('#resize').toggleClass('active');
 });
+
+
+//closures
+
+var dwightSalary = (function() {
+    var salary = 60000;
+    function changeBy(amount) {
+        salary += amount;
+    }
+    return {
+        raise: function() {
+            changeBy(5000);
+        },
+        lower: function() {
+            changeBy(-5000);
+        },
+        currentAmount: function() {
+            return salary;
+        }
+    };
+})();
+
+alert(dwightSalary.currentAmount()); // $60,000
+dwightSalary.raise();
+alert(dwightSalary.currentAmount()); // $65,000
+dwightSalary.lower();
+dwightSalary.lower();
+alert(dwightSalary.currentAmount()); // $55,000
+
+dwightSalary.changeBy(10000) // TypeError: undefined is not a function
