@@ -375,3 +375,38 @@ dwightSalary.lower();
 alert(dwightSalary.currentAmount()); // $55,000
 
 dwightSalary.changeBy(10000) // TypeError: undefined is not a function
+
+//callbacks
+
+let x = function(){
+console.log("i am called from inside a function")
+};
+let y = function(callback){
+console.log("do something");
+	callback();
+}
+y(x);
+
+let add = function(a,b){
+return a + b ;
+};
+
+let multiply = function(a,b){
+return a * b;
+};
+
+
+let doThis = function(a,b){
+	console.log(`here are the two numbers: ${a}, ${b}`);
+};
+
+let calc = function (num1,num2,callback){
+	if(typeOf callback === 'function'){
+  return callback(num1, num2);
+  }
+};
+
+console.log(calc(2,3, doThis));
+console.log(calc(2,3, function(a,b){
+	return a - b;
+}))
